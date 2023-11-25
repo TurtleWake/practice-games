@@ -8,9 +8,14 @@ body {
 }
 
 .grid {
-    width: 400px;
-    height: 300px;
+    width: 700px;
+    height: 1000px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+#score {
+    color: white;
+    margin-right: auto;
 }

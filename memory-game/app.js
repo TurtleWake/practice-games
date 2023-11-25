@@ -65,39 +65,50 @@ function createBoard()  {
         card.addEventListener('click', flipCard)
         gridDisplay.appendChild(card)
 
-        card.style.width = '125px'; // Change this value to the desired width
-        card.style.height = '125px'; // Change this value to the desired height
+        card.style.width = '225px'; // Change this value to the desired width
+        card.style.height = '225px'; // Change this value to the desired height
     }
 }
 
 createBoard()
 
 function checkMatch() {
-    const cards = document.querySelectorAll('.grid img')
-    const optionOneId = cardsChosenIds[0]
-    const optionTwoId = cardsChosenIds[1]
-    console.log(cards)
-    console.log('check for match!')
-    if (cardsChosen[0] == cardsChosen[1]) {
-        alert('You found a match!')
-        cards[optionOneId].setAttribute('src', 'https://github.com/kubowania/memory-game/blob/master/images/white.png?raw=true') 
-        cards[optionTwoId].setAttribute('src', 'https://github.com/kubowania/memory-game/blob/master/images/white.png?raw=true') 
-        cards[optionOneId].removeEventListener('click', flipCard)
-        cards[optionTwoId].removeEventListener('click', flipCard)
-        cardsWon.push(cardsChosen)
-    } else {
-        cards[optionOneId].setAttribute('src', './squre-blue-gemstone-copy-8000x8000.png')
-        cards[optionTwoId].setAttribute('src', './squre-blue-gemstone-copy-8000x8000.png')
-        alert('Sorry try again!')
-    }
-    resultDisplay.innerHTML = cardsWon.length
-    cardsChosen = []
-    cardsChosenIds = []
+    const cards = document.querySelectorAll('.grid img');
+    const optionOneId = cardsChosenIds[0];
+    const optionTwoId = cardsChosenIds[1];
 
-    if (cardsWon.length == cardArray.length/2) {
-        resultDisplay.innerHTML = 'Congratulations! You found them all!'
+    if (cardsChosen[0] == cardsChosen[1]) {
+        alert('You found a match!');
+        
+    
+        cards[optionOneId].style.visibility = 'hidden';
+        cards[optionTwoId].style.visibility = 'hidden';
+
+        
+        cards[optionOneId].classList.add('matched');
+        cards[optionTwoId].classList.add('matched');
+
+        cardsWon.push(cardsChosen);
+    } else {
+        alert('Sorry, try again!');
+        
+        
+        setTimeout(() => {
+            cards[optionOneId].setAttribute('src', './squre-blue-gemstone-copy-8000x8000.png');
+            cards[optionTwoId].setAttribute('src', './squre-blue-gemstone-copy-8000x8000.png');
+        }, 1000); 
+    }
+
+    resultDisplay.innerHTML = cardsWon.length;
+    cardsChosen = [];
+    cardsChosenIds = [];
+
+    if (cardsWon.length == cardArray.length / 2) {
+        resultDisplay.innerHTML = 'Congratulations! You found them all!';
     }
 }
+
+
 
 function flipCard() {
     const cardId = this.getAttribute('data-id')
