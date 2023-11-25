@@ -60,10 +60,13 @@ const cardsWon = []
 function createBoard()  {
     for (let i = 0; i < cardArray.length; i++) {
         const card = document.createElement('img')
-        card.setAttribute('src', 'https://github.com/kubowania/memory-game/blob/master/images/blank.png?raw=true')
+        card.setAttribute('src', './squre-blue-gemstone-copy-8000x8000.png')
         card.setAttribute('data-id', i)
         card.addEventListener('click', flipCard)
         gridDisplay.appendChild(card)
+
+        card.style.width = '125px'; // Change this value to the desired width
+        card.style.height = '125px'; // Change this value to the desired height
     }
 }
 
@@ -83,8 +86,8 @@ function checkMatch() {
         cards[optionTwoId].removeEventListener('click', flipCard)
         cardsWon.push(cardsChosen)
     } else {
-        cards[optionOneId].setAttribute('src', 'https://github.com/kubowania/memory-game/blob/master/images/blank.png?raw=true')
-        cards[optionTwoId].setAttribute('src', 'https://github.com/kubowania/memory-game/blob/master/images/blank.png?raw=true')
+        cards[optionOneId].setAttribute('src', './squre-blue-gemstone-copy-8000x8000.png')
+        cards[optionTwoId].setAttribute('src', './squre-blue-gemstone-copy-8000x8000.png')
         alert('Sorry try again!')
     }
     resultDisplay.innerHTML = cardsWon.length
