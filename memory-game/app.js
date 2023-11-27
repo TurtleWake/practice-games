@@ -96,7 +96,7 @@ function checkMatch() {
         setTimeout(() => {
             cards[optionOneId].setAttribute('src', './squre-blue-gemstone-copy-8000x8000.png');
             cards[optionTwoId].setAttribute('src', './squre-blue-gemstone-copy-8000x8000.png');
-        }, 1000); 
+        }, 1000); g
     }
 
     resultDisplay.innerHTML = cardsWon.length;
