@@ -15,7 +15,42 @@ body {
     justify-content: center;
 }
 
+.grid img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.grid img:hover {
+    animation: scaleAndShake 0.5s ease-in-out;
+}
+
+@keyframes scaleAndShake {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1) translateX(-5px);
+    }
+    75% {
+        transform: scale(1) translateX(5px);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
 #score {
+    background-image: url('https://cdn.discordapp.com/attachments/1172613277889601567/1178843987403083887/Untitled.png?ex=65779f04&is=65652a04&hm=ffb1b4d0da2af79bb5155ea80ad0b583a760af608567399c874c6b3786c7b233&');
+    background-color: #333; 
     color: white;
     margin-right: auto;
+    height: 100px; 
+}
+
+h3#score {
+    background-image: url('https://cdn.discordapp.com/attachments/1172613277889601567/1178843987403083887/Untitled.png?ex=65779f04&is=65652a04&hm=ffb1b4d0da2af79bb5155ea80ad0b583a760af608567399c874c6b3786c7b233&');
 }
